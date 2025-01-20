@@ -845,7 +845,7 @@ paths:
             default: center
         - name: date
           in: query
-          description: "想要查詢的日期 (YYYY-MM-DD)"
+          description: "想要查詢的日期(YYYY-MM-DD)"
           required: true
           schema:
             type: string

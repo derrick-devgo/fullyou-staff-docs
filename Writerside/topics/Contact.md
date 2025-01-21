@@ -1,3 +1,0 @@
-# Contact
-
-Start typing here...

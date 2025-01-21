@@ -1,3 +1,0 @@
-# Con
-
-Start typing here...

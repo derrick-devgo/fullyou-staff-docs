@@ -18,4 +18,44 @@
         <description>Created after removal of "取得訂餐" from API Docs</description>
         <accepts>Place-an-order-for-a-pet.html</accepts>
     </rule>
+    <rule id="daf83c0">
+        <description>Created after removal of "Con" from API Docs</description>
+        <accepts>Con.html</accepts>
+    </rule>
+    <rule id="7dbb8be4">
+        <description>Created after removal of "Pet" from API Docs</description>
+        <accepts>Pet.html</accepts>
+    </rule>
+    <rule id="667f2b7c">
+        <description>Created after removal of "Create user" from API Docs</description>
+        <accepts>Create-user.html</accepts>
+    </rule>
+    <rule id="114d5483">
+        <description>Created after removal of "Create list of users with given input array" from API Docs</description>
+        <accepts>Creates-list-of-users-with-given-input-array.html</accepts>
+    </rule>
+    <rule id="46d54444">
+        <description>Created after removal of "Log user into the system" from API Docs</description>
+        <accepts>Logs-user-into-the-system.html</accepts>
+    </rule>
+    <rule id="4452f3a3">
+        <description>Created after removal of "Log current user out" from API Docs</description>
+        <accepts>Logs-out-current-logged-in-user-session.html</accepts>
+    </rule>
+    <rule id="490be492">
+        <description>Created after removal of "Find user" from API Docs</description>
+        <accepts>Get-user-by-user-name.html</accepts>
+    </rule>
+    <rule id="2d4a0e49">
+        <description>Created after removal of "Update user" from API Docs</description>
+        <accepts>Update-user.html</accepts>
+    </rule>
+    <rule id="77615352">
+        <description>Created after removal of "Delete user" from API Docs</description>
+        <accepts>Delete-user.html</accepts>
+    </rule>
+    <rule id="4a2d7944">
+        <description>Created after removal of "Contact" from API Docs</description>
+        <accepts>Contact.html</accepts>
+    </rule>
 </rules>

@@ -58,4 +58,12 @@
         <description>Created after removal of "Contact" from API Docs</description>
         <accepts>Contact.html</accepts>
     </rule>
+    <rule id="34955b01">
+        <description>Created after removal of "教職員" from API Docs</description>
+        <accepts>教職員.html</accepts>
+    </rule>
+    <rule id="2765cb9f">
+        <description>Created after removal of "Empty MD Topic" from API Docs</description>
+        <accepts>Empty-MD-Topic.html</accepts>
+    </rule>
 </rules>

@@ -52,8 +52,8 @@ paths:
     get:
       tags:
         - breakingNews
-      summary: 根據類型與狀態選擇最新消息
-      description: Multiple status values can be provided with comma separated strings
+      summary: 最新消息列表
+      description: 根據類型與狀態選擇最新消息列表
       operationId: findPetsByStatus
       parameters:
         - name: type
@@ -106,19 +106,18 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /breaking_news/{news_id}:
+  /breakingNews/{newsId}:
     get:
       tags:
         - breaking_news
       summary: 最新消息內頁資料
       x-swagger-router-controller: OrderController
-      description: For valid response try integer IDs with value less than 5 or > 10. Other values
-        will generate exceptions.
+      description: 最新消息內頁資料
       operationId: getOrderById
       parameters:
-        - name: news_id
+        - name: newsId
           in: path
-          description: ID of order that needs to be fetched
+          description: 最新消息ID
           required: true
           schema:
             type: integer
@@ -156,7 +155,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Order not found
-  /questionnaire:
+  /questionnaires:
     get:
       tags:
         - questionnaire
@@ -200,7 +199,7 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Order not found
-  /questionnaire/{questionnaire_id}:
+  /questionnaires/{questionnaireId}:
     get:
       tags:
         - questionnaire
@@ -210,10 +209,10 @@ paths:
         will generate exceptions.
       operationId: getOrderById
       parameters:
-        - name: questionnaire_id
+        - name: questionnaireId
           in: path
           description: 問卷ID
-          required: false
+          required: true
           explode: true
           schema:
             type: integer
@@ -229,12 +228,12 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Order not found
-  /contact_books:
+  /contactBooks:
     get:
       tags:
         - contact_books
       summary: 根據班別與日期獲取聯絡簿列表
-      description: Multiple status values can be provided with comma separated strings
+      description: 根據班別與日期獲取聯絡簿列表
       operationId: findPetsByStatus
       parameters:
         - name: date
@@ -266,12 +265,12 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /contact_books/{contactBook_id}:
+  /contactBooks/{contactBookId}:
     get:
       tags:
         - contact_books
       summary: 聯絡簿內頁
-      description: Multiple status values can be provided with comma separated strings
+      description: 聯絡簿內頁
       operationId: findPetsByStatus
       parameters:
         - name: contactBook_id
@@ -297,36 +296,30 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /school/{school_id}/classes/class_id/roster:
+  /schools/{schoolId}/rosters/{rosterId}:
     get:
       tags:
         - attendance
       summary: 根據參數獲取待點名清單
-      description: 根據學校ID、時段、星期等參數取得點名表
+      description: 根據學校ID、星期、時段等參數取得點名表
       operationId: findPetsByStatus
       parameters:
-        - name: type
-          in: query
-          description: 根據類型判斷此份點名單是學校外點名還是到班點名
-          required: true
-          explode: true
-          schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: branch
+        - name: schoolId
           in: path
-          description: 根據類型判斷此份點名單是學校外點名還是到班點名
+          description: 學校ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
+        - name: rosterId
+          in: path
+          description: 點名單ID
+          required: true
+          explode: true
+          schema:
+            type: integer
+            format: int64
       responses:
         '200':
           description: successful operation
@@ -342,28 +335,25 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branch_id}/classes/class_id/roster:
+  /branch/{branchId}/classTypes/{classTypeId}/rosters/{rosterId}:
     get:
       tags:
         - attendance
-      summary: 根據參數獲取待點名清單
-      description: 根據分校、班級、班別等參數取得點名表
+      summary: 根據分校、班別取得點名表
+      description: 根據分校、班別取得點名表
       operationId: findPetsByStatus
       parameters:
-        - name: branch_id
+        - name: branchId
           in: path
           description: 分校ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: class_id
+            type: integer
+            format: int64
+        - name: classTypeId
           in: path
-          description: 班級ID
+          description: 班別ID
           required: true
           explode: true
           schema:

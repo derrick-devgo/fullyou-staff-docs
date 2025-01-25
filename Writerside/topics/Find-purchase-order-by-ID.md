@@ -1,3 +1,3 @@
 # 取得特定學生資料
 
-<api-endpoint openapi-path="./../openapi.yaml" endpoint="/branch/{branch_id}/classes/class_id/students/{student_id}" method="GET"/>
+<api-endpoint openapi-path="./../openapi.yaml" endpoint="/branch/{branchId}/classes/{classId}/classTypes/{classTypeId}/students/{studentId}" method="GET"/>

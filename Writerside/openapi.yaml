@@ -388,7 +388,7 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branch_id}/classes/class_id/students:
+  /branch/{branchId}/classes/{classId}/classTypes/{classTypeId}/students:
     get:
       tags:
         - student
@@ -402,22 +402,16 @@ paths:
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
         - name: class_id
           in: path
           description: 班級ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
         - name: crClass_id
           in: query
           description: 班別ID
@@ -444,41 +438,46 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branch_id}/classes/class_id/students/{student_id}:
+  /branch/{branchId}/classes/{classId}/classTypes/{classTypeId}/students/{studentId}:
     get:
       tags:
         - student
       summary: 取得特定學生資料
-      description: 根據分校、班級、班別等參數取得點名表
+      description: 根據分校、班級、班別等參數取得特定學生資料
       operationId: findPetsByStatus
       parameters:
-        - name: branch_id
+        - name: branchId
           in: path
           description: 分校ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: class_id
+            type: integer
+            format: int64
+        - name: classId
           in: path
           description: 班級ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
+        - name: classTypeId
+          in: path
+          description: 班別ID
+          required: true
+          explode: true
+          schema:
+            type: integer
+            format: int64
         - name: studentId
           in: path
           description: 學生ID
           required: true
           explode: true
+          schema:
+            type: integer
+            format: int64
       responses:
         '200':
           description: successful operation
@@ -494,37 +493,31 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branch_id}/classes/class_id/orderRecords:
+  /branches/{branchId}/classes/{classId}/classTypes/{classTypesId}/orderRecords:
     get:
       tags:
         - orderRecord
       summary: 取得訂餐紀錄
-      description: Returns a map of status codes to quantities
+      description: 根據分校、班級、班別取得訂餐紀錄列表
       operationId: getInventory
       x-swagger-router-controller: OrderController
       parameters:
-        - name: branch_id
+        - name: branchId
           in: path
           description: 分校ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: class_id
+            type: integer
+            format: int64
+        - name: classId
           in: path
           description: 班級ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
         - name: date
           in: query
           description: "想要查詢的日期 (YYYY-MM-DD)"
@@ -544,36 +537,31 @@ paths:
                   format: int32
       security:
         - api_key: []
-  /branch/{branch_id}/classes/class_id/orderRecords/{recordsId}:
+  /branches/{branchId}/classes/{classId}/classTypes/{classTypesId}/orderRecords/{recordId}:
     get:
       tags:
         - orderRecord
       summary: 取得特定訂餐紀錄
-      description: Returns a map of status codes to quantities
+      description: 取得特定訂餐紀錄
       operationId: getInventory
       x-swagger-router-controller: OrderController
       parameters:
-        - name: branch_id
+        - name: branchId
           in: path
           description: 分校ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: class_id
+            type: integer
+            format: int64
+        - name: classId
           in: path
           description: 班級ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
+            type: integer
+            format: int64
             default: center
         - name: date
           in: query

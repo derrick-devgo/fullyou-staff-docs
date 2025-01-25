@@ -66,4 +66,16 @@
         <description>Created after removal of "Empty MD Topic" from API Docs</description>
         <accepts>Empty-MD-Topic.html</accepts>
     </rule>
+    <rule id="1e67ec36">
+        <description>Created after removal of "到校接點名單" from API Docs</description>
+        <accepts>到校接點名單.html</accepts>
+    </rule>
+    <rule id="4153526f">
+        <description>Created after removal of "根據學校、星期、時段獲取點名單" from API Docs</description>
+        <accepts>根據學校、星期、時段獲取點名單.html</accepts>
+    </rule>
+    <rule id="28401b6f">
+        <description>Created after removal of "補習班點名單" from API Docs</description>
+        <accepts>補習班點名單.html</accepts>
+    </rule>
 </rules>

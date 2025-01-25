@@ -29,8 +29,8 @@
                 <toc-element topic="取得特定訂餐紀錄.md"/>
             </toc-element>
             <toc-element toc-title="到班/離班">
-                <toc-element topic="根據分校、班別獲取點名單.md"/>
-                <toc-element topic="根據學校、星期、時段獲取點名單.md"/>
+                <toc-element topic="點名單.md"/>
+                <toc-element topic="特定點名單.md"/>
             </toc-element>
         </toc-element>
         <toc-element toc-title="家長">

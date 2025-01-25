@@ -296,22 +296,24 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /schools/{schoolId}/rosters/{rosterId}:
+  /rosters:
     get:
       tags:
         - attendance
-      summary: 根據參數獲取待點名清單
-      description: 根據學校ID、星期、時段等參數取得點名表
+      summary: 根據參數獲取待點名單列表
+      description: 根據參數獲取待點名單列表
       operationId: findPetsByStatus
       parameters:
-        - name: schoolId
-          in: path
-          description: 學校ID
+        - name: type
+          in: query
+          description: 0:到班點名 1:到校點名
           required: true
           explode: true
           schema:
             type: integer
-            format: int64
+            enum:
+              - 0
+              - 1
         - name: rosterId
           in: path
           description: 點名單ID
@@ -335,44 +337,22 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branches/{branchId}/classTypes/{classTypeId}/rosters/{rosterId}:
+  /rosters/{rosterId}:
     get:
       tags:
         - attendance
-      summary: 根據分校、班別取得點名表
-      description: 根據分校、班別取得點名表
+      summary: 獲取特定點名單
+      description: 獲取特定點名單
       operationId: findPetsByStatus
       parameters:
-        - name: branchId
+        - name: rosterId
           in: path
-          description: 分校ID
+          description: 點名單ID
           required: true
           explode: true
           schema:
             type: integer
             format: int64
-        - name: classTypeId
-          in: path
-          description: 班別ID
-          required: true
-          explode: true
-          schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
-        - name: crClass_id
-          in: query
-          description: 班別ID
-          required: true
-          explode: true
-          schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
       responses:
         '200':
           description: successful operation

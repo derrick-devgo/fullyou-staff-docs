@@ -243,7 +243,7 @@ paths:
           schema:
             type: string
             format: date
-        - name: crClass_id
+        - name: classTypeId
           in: query
           description: "班別ID"
           required: true
@@ -273,7 +273,7 @@ paths:
       description: 聯絡簿內頁
       operationId: findPetsByStatus
       parameters:
-        - name: contactBook_id
+        - name: contactBookId
           in: path
           description: 聯絡簿ID
           required: true

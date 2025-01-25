@@ -177,9 +177,9 @@ paths:
               - completed
               - scheduled
             default: available
-        - name: order_by
+        - name: orderBy
           in: query
-          description: “ASC” or “DESC”,固定用日期排序
+          description: “asc” or “desc”,固定用日期排序
           required: false
           explode: true
           schema:
@@ -187,7 +187,7 @@ paths:
             enum:
               - asc
               - desc
-            default: available
+            default: asc
       responses:
         '200':
           description: successful operation
@@ -335,7 +335,7 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branchId}/classTypes/{classTypeId}/rosters/{rosterId}:
+  /branches/{branchId}/classTypes/{classTypeId}/rosters/{rosterId}:
     get:
       tags:
         - attendance
@@ -388,7 +388,7 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branchId}/classes/{classId}/classTypes/{classTypeId}/students:
+  /branches/{branchId}/classes/{classId}/classTypes/{classTypeId}/students:
     get:
       tags:
         - student
@@ -435,7 +435,7 @@ paths:
         - petstore_auth:
             - 'write:pets'
             - 'read:pets'
-  /branch/{branchId}/classes/{classId}/classTypes/{classTypeId}/students/{studentId}:
+  /branches/{branchId}/classes/{classId}/classTypes/{classTypeId}/students/{studentId}:
     get:
       tags:
         - student

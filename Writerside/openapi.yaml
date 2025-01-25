@@ -396,7 +396,7 @@ paths:
       description: 根據分校、班級、班別等參數取得點名表
       operationId: findPetsByStatus
       parameters:
-        - name: branch_id
+        - name: branchId
           in: path
           description: 分校ID
           required: true
@@ -404,7 +404,7 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: class_id
+        - name: classId
           in: path
           description: 班級ID
           required: true
@@ -412,17 +412,14 @@ paths:
           schema:
             type: integer
             format: int64
-        - name: crClass_id
+        - name: classTypeId
           in: query
           description: 班別ID
           required: true
           explode: true
           schema:
-            type: string
-            enum:
-              - school
-              - center
-            default: center
+            type: integer
+            format: int64
       responses:
         '200':
           description: successful operation
